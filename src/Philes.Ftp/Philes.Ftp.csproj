@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>92ecd671-a6f9-48f2-b0b7-6df6ca68cac7</ProjectGuid>
+    <ProjectGuid>{92ECD671-A6F9-48F2-B0B7-6DF6CA68CAC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Philes.Ftp</RootNamespace>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\..\Labs\OTHER\Lab\Lab\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,24 +30,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Configuration\Event.cs" />
+    <Compile Include="Extensions\FtpExtensions.cs" />
+    <Compile Include="Extensions\PhilesClientConfigExtensions.cs" />
+    <Compile Include="Configuration\PhilesConfig.cs" />
+    <Compile Include="Configuration\PhilesStartup.cs" />
+    <Compile Include="Configuration\Setup.cs" />
+    <Compile Include="Core\PhilesClient.cs" />
+    <Compile Include="Core\PhilesContext.cs" />
+    <Compile Include="Core\PhilesException.cs" />
+    <Compile Include="Core\IPhilesClient.cs" />
+    <Compile Include="Extensions\FtpWebResponseExtensions.cs" />
+    <Compile Include="Extensions\PhilesClientFtpExtensions.cs" />
+    <Compile Include="Core\FtpMessageHandler.cs" />
+    <Compile Include="Core\IFtpMessageHandler.cs" />
+    <Compile Include="Core\FtpMessageInvoker.cs" />
+    <Compile Include="Core\IFtpMessageInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
