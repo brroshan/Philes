@@ -7,7 +7,7 @@ namespace Philes.Ftp.Core
     public interface IFtpMessageInvoker
     {
         Task<FtpWebResponse> CommandAsync(string method, string path = null,
-                                          string from = null, string to = null,
+                                          string remote = null,
                                           Action<FtpWebResponse>
                                               responseAction = null,
                                           Action<FtpWebRequest>

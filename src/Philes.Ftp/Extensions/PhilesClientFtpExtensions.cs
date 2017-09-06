@@ -13,7 +13,7 @@ namespace Philes.Ftp.Extensions
             this IPhilesClient c, string local, string remote)
         {
             var url = remote.AppendTo(c.Config.BaseAddress);
-            return await c.CommandAsync(DownloadFile, local: local, remote: url,
+            return await c.CommandAsync(DownloadFile, remote: url,
                 responseAction:
                 async response =>
                 {
@@ -21,7 +21,7 @@ namespace Philes.Ftp.Extensions
                     using (var sr = new StreamReader(stream, Encoding.UTF8)) {
                         var content = await sr
                             .ReadToEndAsync().ConfigureAwait(false);
-                        File.WriteAllText(remote, content);
+                        File.WriteAllText(local, content);
                     }
                 });
         }
@@ -30,7 +30,7 @@ namespace Philes.Ftp.Extensions
             this IPhilesClient c, string local, string remote)
         {
             var url = remote.AppendTo(c.Config.BaseAddress);
-            return await c.CommandAsync(AppendFile, local: local, remote: url,
+            return await c.CommandAsync(AppendFile, remote: url,
                 requestAction:
                 async request => { await AddToRequestStream(local, request); });
         }
@@ -39,7 +39,7 @@ namespace Philes.Ftp.Extensions
             this IPhilesClient c, string local, string remote)
         {
             var url = remote.AppendTo(c.Config.BaseAddress);
-            return await c.CommandAsync(UploadFile, local: local, remote: url,
+            return await c.CommandAsync(UploadFile, remote: url,
                 requestAction:
                 async request => { await AddToRequestStream(local, request); });
         }

@@ -22,7 +22,7 @@ namespace Philes.Ftp.Core
             return Context.Request = request;
         }
 
-        public async Task<FtpWebResponse> InvokeRequestAsync(FtpWebRequest request)
+        public async Task<FtpWebResponse> RequestAsync(FtpWebRequest request)
         {
             PhilesStartup.Context = Context;
             try {

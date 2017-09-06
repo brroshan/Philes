@@ -47,15 +47,15 @@ namespace Philes.Ftp.Core
             (_invoker = new FtpMessageInvoker(MessageHandler));
 
         public async Task<FtpWebResponse> CommandAsync(
-            string method, string path = null, string from = null,
-            string to = null, Action<FtpWebResponse> responseAction = null,
+            string method, string path = null,
+            string remote = null, Action<FtpWebResponse> responseAction = null,
             Action<FtpWebRequest> requestAction = null)
         {
             FtpWebResponse response = null;
 
             try {
                 response = await MessageInvoker.CommandAsync(
-                    method, path, from, to, responseAction,
+                    method, path, remote, responseAction,
                     requestAction);
 
                 Context = MessageHandler.Context;

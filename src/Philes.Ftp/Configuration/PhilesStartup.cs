@@ -10,16 +10,23 @@ namespace Philes.Ftp.Configuration
 
         internal static Task Emit(Event on, PhilesContext context)
         {
+            var config = Setup.Config;
+
             switch (on) {
                 case Event.Start:
-                    return Setup.Config.OnStart(context);
+                    if (config.OnStart == null) return TaskCompleted;
+                    return config.OnStart(context);
                 case Event.Error:
-                    return Setup.Config.OnError(context);
+                    if (config.OnError == null) return TaskCompleted;
+                    return config.OnError(context);
                 case Event.Ended:
-                    return Setup.Config.OnEnded(context);
+                    if (config.OnEnded == null) return TaskCompleted;
+                    return config.OnEnded(context);
                 default:
-                    return Task.FromResult<object>(null);
+                    return TaskCompleted;
             }
         }
+
+        public static Task TaskCompleted => Task.FromResult<object>(null);
     }
 }

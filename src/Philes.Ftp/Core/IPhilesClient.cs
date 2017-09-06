@@ -9,11 +9,10 @@ namespace Philes.Ftp.Core
     {
         IFtpMessageHandler MessageHandler { get; }
         IFtpMessageInvoker MessageInvoker { get; }
-        
+
         PhilesConfig Config { get; set; }
 
         Task<FtpWebResponse> CommandAsync(string method, string path = null,
-                                          string local = null,
                                           string remote = null,
                                           Action<FtpWebResponse>
                                               responseAction = null,

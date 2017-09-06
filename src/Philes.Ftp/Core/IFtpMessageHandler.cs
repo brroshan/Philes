@@ -8,6 +8,6 @@ namespace Philes.Ftp.Core
         ICredentials Credentials { get; set; }
         PhilesContext Context { get; set; }
         FtpWebRequest CreateRequest(string uri, string method);
-        Task<FtpWebResponse> InvokeRequestAsync(FtpWebRequest request);
+        Task<FtpWebResponse> RequestAsync(FtpWebRequest request);
     }
 }
